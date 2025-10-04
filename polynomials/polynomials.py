@@ -106,7 +106,7 @@ class Polynomial:
             result = self
             for i in range(other - 1):
                 result = result.__mul__(self)
-            return result
+            return Polynomial(result)
         else:
             return NotImplemented
         
@@ -116,6 +116,23 @@ class Polynomial:
             result = 0
             for i in range(len(self.coefficients)):
                 result += self.coefficients[i] * other ** i
-            return result
+            return Polynomial(result)
         else:
             return NotImplemented
+        
+    
+    def dx(self):
+        coefs = ()
+        if len(self.coefficients) == 1:
+            return Polynomial((0,))
+        else:
+            for i in range(1,len(self.coefficients)):
+                coefs += (i * self.coefficients[i],)
+            return Polynomial(coefs)
+    
+
+def derivative(func):
+    if isinstance(func,Polynomial):
+        return func.dx()
+    else:
+        return NotImplemented
