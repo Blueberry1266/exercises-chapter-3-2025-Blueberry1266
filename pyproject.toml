@@ -3,8 +3,8 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "Exercise 3"
+name = "Exercise_3"
 version = "0.1"
 
 [tool.hatch.build.targets.wheel]
-packages = ["polynomials", "shape"]
+packages = ["polynomials","shape"]
