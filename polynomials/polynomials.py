@@ -106,7 +106,7 @@ class Polynomial:
             result = self
             for i in range(other - 1):
                 result = result.__mul__(self)
-            return Polynomial(result)
+            return result
         else:
             return NotImplemented
         
@@ -116,7 +116,7 @@ class Polynomial:
             result = 0
             for i in range(len(self.coefficients)):
                 result += self.coefficients[i] * other ** i
-            return Polynomial(result)
+            return result
         else:
             return NotImplemented
         
